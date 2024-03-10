@@ -1,0 +1,38 @@
+.container{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 35rem;
+    margin-right: 1rem;
+  }
+  
+  .details{
+    margin-bottom: 1rem;
+  }
+  
+  .details > div{
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .details strong{
+    display: inline-block;
+    width: 20%;
+  }
+  
+  .full-screen-line {
+    position: absolute;
+    top: 23%; /* Position at the vertical center of the viewport */
+    left: 0;
+    margin-left: 5%;
+    width: 90%; /* Make the line span the entire width of the viewport */
+    border-top: 2px solid black; /* Adjust the thickness and color of the line */
+  }
+  

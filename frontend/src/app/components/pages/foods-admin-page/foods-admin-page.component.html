@@ -1,0 +1,65 @@
+<app-title title="Food Page" margin="1.5rem 0 0 2.5rem"></app-title>
+<div> 
+  <button class="add-button" routerLink="/addnewfoods">
+    Add New Foods
+</button>
+</div>
+<ul>
+  <li>
+    <div>Food Image</div>
+    <div>Name</div>
+    <div>Favorite</div>
+    <div>Origins</div>
+    <div>Tags</div>
+    <div>Cookingtime</div>
+    <div>Price</div>
+    <div></div>
+    <div></div>
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let food of foods">
+      <div>
+          <img [src]="food.imageUrl" [alt]="food.name">
+      </div>
+      <div class="header">
+        <span class="name">
+            {{food.name}}
+        </span>
+      </div>
+      <div class="rating">
+        <star-rating [stars]="food.stars" />
+      </div>
+      <div class="origins">
+        <span *ngFor="let origin of food.origins">
+            {{origin}}
+        </span>
+      </div>
+      <div class="tags">
+        <a *ngFor="let tag of food.tags" routerLink="/tag/{{tag}}">
+            {{tag}}
+        </a>
+      </div>
+      <div class="cook-time">
+        <span>
+            Time to cook about <strong>{{food.cookTime}}</strong> minutes
+        </span>
+      </div>
+      <div class="price">
+        <span>
+            {{food.price | currency}}
+        </span>
+      </div>
+      
+      <div>
+        <button class="re-button" (click)="editFoodFromFoods(food)">
+          Edit Food
+        </button>
+      </div>
+      <div> 
+        <button class="re-button" (click)="removeFoodFromFoods(food)">
+          Remove
+        </button>
+      </div>
+  </li>
+</ul>

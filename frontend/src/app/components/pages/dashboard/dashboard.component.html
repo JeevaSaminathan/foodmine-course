@@ -1,0 +1,25 @@
+<app-not-found
+    [visible]="!isAdmin"
+    notFoundMessage="It is Admin Access Page"
+    resetLinkText="Go To Homepage">
+</app-not-found>
+<div *ngIf="isAdmin" class="container">
+    <div class="menu">
+        <a routerLink="/foods/getfood" style="background-color: #e040fb;">
+            <img src="/assets/foods.svg" alt="Foods"/>
+            <h2>Foods</h2>
+        </a>
+        <a routerLink="/orders/get" style="background-color: #ec407a;">
+            <img src="/assets/orders.svg" alt="Orders"/>
+            <h2>Orders</h2>
+        </a>
+        <a routerLink="/users/getuser" style="background-color: #00bfa5;">
+            <img src="/assets/users.svg" alt="Users"/>
+            <h2>Users</h2>
+        </a>
+        <a routerLink="/" style="background-color: #1565c0;">
+            <img src="/assets/profile.svg" alt="Profile"/>
+            <h2>Profile</h2>
+        </a>
+    </div>
+</div>

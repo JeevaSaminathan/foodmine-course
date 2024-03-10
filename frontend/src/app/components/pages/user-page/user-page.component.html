@@ -1,0 +1,36 @@
+<app-title title="User Page" margin="1.5rem 0 0 2.5rem"></app-title>
+<ul>
+  <li>
+    <div>S. No</div>
+    <div>Name</div>
+    <div>E-Mail</div>
+    <div>Address</div>
+    <div></div>
+  </li>
+</ul>
+<ul class="serial-list">
+  <li *ngFor="let user of users">
+      <div class="header">
+        <span class="name">
+            {{user.name}}
+        </span>
+      </div>
+      <div class="header">
+        <span class="email">
+            {{user.email}}
+        </span>
+      </div>
+      <div class="header">
+        <span class="address">
+            {{user.address}}
+        </span>
+      </div>
+      
+      <div> 
+        <button class="re-button" (click)="removeUserFromUsers(user)">
+          Remove
+        </button>
+      </div>
+  </li>
+</ul>
+  

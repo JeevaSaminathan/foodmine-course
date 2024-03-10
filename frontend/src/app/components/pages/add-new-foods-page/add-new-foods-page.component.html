@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="content" [class.dialog-open]="isDialogOpen">
+        <app-title title="Add New Foods Page" margin="1.5rem 5rem 2rem 2.5rem"></app-title>
+        <form  [formGroup]="foodsForm" (ngSubmit)="submit()">
+            <text-input
+            [control]="fc.name"
+            [showErrorsWhen]="isSubmitted"
+            type="text"
+            label="Food Name">
+            </text-input>
+
+            <text-input
+            [control]="fc.price"
+            [showErrorsWhen]="isSubmitted"
+            type="text"
+            label="Price">
+            </text-input>
+
+            <label for="tags">Tags</label>
+            <textarea #myTextareatags id="tags" name="tags" rows="4" cols="50" placeholder="Tags">{{ textareaContentTags }}</textarea>
+
+            <label for="favorite">Favorite:</label>
+            <select id="favorite" name="favorite" formControlName="favorite" required>
+                <option value="" disabled selected>Please select True or False</option>
+                <option [value]="true">True</option>
+                <option [value]="false">False</option>
+            </select>
+
+
+            <text-input
+            [control]="fc.stars"
+            [showErrorsWhen]="isSubmitted"
+            type="text"
+            label="Stars">
+            </text-input>
+
+            <div class="details">
+                <div class="box1">
+                    <h2>Upload Image</h2>
+                    <input id="imageUrl" type="file" (change)="onFileSelected($event)">
+                </div>
+                <div *ngIf="imageUrl" class="box2">
+                    <h3>Preview:</h3>
+                    <img [src]="imageUrl" alt="Uploaded Image">
+                </div>
+            </div>
+
+            <label for="Origins">Origins</label>
+            <textarea #myTextareaorigins id="origins" name="origins" rows="4" cols="50" placeholder="Origins">{{ textareaContentOrigins }}</textarea>
+
+            <text-input
+            [control]="fc.cookingtime"
+            [showErrorsWhen]="isSubmitted"
+            type="text"
+            label="Cookingtime">
+            </text-input>
+
+            <default-button text="Add Food"></default-button>
+        </form>
+  
+    </div>
+  </div>

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="content" [class.dialog-open]="isDialogOpen" *ngIf="editfood">
+        <app-title title="Edit Foods Page" margin="1.5rem 5rem 2rem 2.5rem"></app-title>
+        <form  [formGroup]="foodsForm" (ngSubmit)="submit()">
+            
+            <label for="name"> Food Name</label>
+            <input id="name" type="text" value="{{editfood.name}}" #inputFieldName (blur)="onEnterName(inputFieldName.value)">
+
+
+            <label for="price"> Food Price</label>
+            <input id="price" type="text" value="{{editfood.price}}" #inputFieldPrice (blur)="onEnterPrice(inputFieldPrice.value)">
+
+
+            <label for="tags">Tags</label>
+            <textarea #myTextareatags id="tags" name="tags" rows="4" cols="50" placeholder="{{editfood.tags}}">{{ textareaContentTags }}</textarea>
+
+            <label for="favorite">Favorite:</label>
+            <select id="favorite" name="favorite" formControlName="favorite">
+                <option value="" disabled selected>{{editfood.favorite}}</option>
+                <option [value]="true">True</option>
+                <option [value]="false">False</option>
+            </select>
+
+
+            <label for="stars"> Food Stars</label>
+            <input id="stars" type="text" value="{{editfood.stars}}" #inputFieldStars (blur)="onEnterStars(inputFieldStars.value)">
+
+            <div class="details">
+                <div class="box1">
+                    <h2>Upload Image</h2>
+                    <input id="imageUrl" type="file" (change)="onFileSelected($event)">
+                </div>
+                <div *ngIf="imageUrl" class="box2">
+                    <h3>Preview:</h3>
+                    <img id="img" [src]="imageUrl" alt="Uploaded Image">
+                </div>
+            </div>
+
+            <label for="Origins">Origins</label>
+            <textarea #myTextareaorigins id="origins" name="origins" rows="4" cols="50" placeholder="{{editfood.origins}}">{{ textareaContentOrigins }}</textarea>
+
+            <label for="cookingtime">Cookingtime</label>
+            <input id="cookingtime" type="text" value="{{editfood.cookTime}}" #inputFieldCook (blur)="onEnterCookingTime(inputFieldCook.value)">
+
+
+            <default-button text="Edit Food"></default-button>
+        </form>
+  
+    </div>
+  </div>

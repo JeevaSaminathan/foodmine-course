@@ -1,0 +1,68 @@
+.container{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 35rem;
+    margin-right: 1rem;
+}
+
+.box1{
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    margin-bottom: 2rem;
+}
+
+.box2{
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    padding-left: 5px;
+    margin-top: 0rem;
+}
+
+.box2 img{
+    max-width: 100%;
+    height: 3rem;
+    display: block;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+textarea{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgb(206, 202, 202);
+    font-size: 12px;
+    font-weight: 300;
+}
+
+label{
+    margin-top: 0.5rem;
+}
+
+select{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.custom-dialog-container {
+    transform: translate(-50%, -50%) !important;
+  }
+
+.dialog-open {
+    opacity: 0.5; /* Adjust the opacity as needed */
+    pointer-events: none; /* Disable pointer events on the background page */
+}

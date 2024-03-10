@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
@@ -9,7 +9,37 @@ import { StarRatingComponent } from './components/partials/star-rating/star-rati
 import { SearchComponent } from './components/partials/search/search.component';
 import { TagsComponent } from './components/partials/tags/tags.component';
 import { FoodPageComponent } from './components/pages/food-page/food-page.component';
-
+import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
+import { TitleComponent } from './components/partials/title/title.component';
+import { NotFoundComponent } from './components/partials/not-found/not-found.component';
+import { LoginPageComponent } from './components/pages/login-page/login-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputContainerComponent } from './components/partials/input-container/input-container.component';
+import { InputValidationComponent } from './components/partials/input-validation/input-validation.component';
+import { TextInputComponent } from './components/partials/text-input/text-input.component';
+import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
+import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
+import { LoadingComponent } from './components/partials/loading/loading.component';
+import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
+import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
+import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
+import { MapComponent } from './components/partials/map/map.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
+import { PaypalButtonComponent } from './components/partials/paypal-button/paypal-button.component';
+import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
+import { FoodsAdminPageComponent } from './components/pages/foods-admin-page/foods-admin-page.component';
+import { AdminPageComponent } from './components/pages/admin-page/admin-page.component';
+import { OrderPageComponent } from './components/pages/order-page/order-page.component';
+import { UserPageComponent } from './components/pages/user-page/user-page.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { AddNewFoodsPageComponent } from './components/pages/add-new-foods-page/add-new-foods-page.component';
+import { CheckboxDialogComponent } from './components/partials/checkbox-dialog/checkbox-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditFoodsPageComponent } from './components/pages/edit-foods-page/edit-foods-page.component';
+import { OrdersTagsComponent } from './components/partials/orders-tags/orders-tags.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +48,51 @@ import { FoodPageComponent } from './components/pages/food-page/food-page.compon
     StarRatingComponent,
     SearchComponent,
     TagsComponent,
-    FoodPageComponent
+    FoodPageComponent,
+    CartPageComponent,
+    TitleComponent,
+    NotFoundComponent,
+    LoginPageComponent,
+    InputContainerComponent,
+    InputValidationComponent,
+    TextInputComponent,
+    DefaultButtonComponent,
+    RegisterPageComponent,
+    LoadingComponent,
+    CheckoutPageComponent,
+    OrderItemsListComponent,
+    MapComponent,
+    PaymentPageComponent,
+    PaypalButtonComponent,
+    OrderTrackPageComponent,
+    FoodsAdminPageComponent,
+    AdminPageComponent,
+    OrderPageComponent,
+    UserPageComponent,
+    DashboardComponent,
+    AddNewFoodsPageComponent,
+    CheckboxDialogComponent,
+    EditFoodsPageComponent,
+    OrdersTagsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatDialogModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut:3000,
+      positionClass:'toast-bottom-right',
+      newestOnTop:false
+    })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true },
+    {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
