@@ -24,6 +24,7 @@ const routes: Routes = [
   {path:'food/:id', component:FoodPageComponent},
   {path:'cart-page', component:CartPageComponent},
   {path:'orders/get', component:AdminPageComponent},
+  {path:'ordertag/:tag', component:AdminPageComponent},
   {path:'users/getuser', component:UserPageComponent},
   {path:'orders', component:OrderPageComponent},
   {path:'login', component: LoginPageComponent},

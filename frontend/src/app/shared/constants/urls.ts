@@ -23,3 +23,6 @@ export const ORDER_NEW_FOR_CURRENT_USER_URL = ORDERS_URL + '/newOrderForCurrentU
 export const ORDER_PAY_URL = ORDERS_URL + '/pay';
 export const ORDER_TRACK_URL = ORDERS_URL + '/track/';
 export const ORDER_GET_URL = ORDERS_URL + '/get';
+export const ORDER_TAGS_URL = ORDERS_URL + '/ordertags';
+export const ORDERS_BY_TAG_URL = ORDERS_URL + '/ordertag/';
+export const ORDER_UPDATE_URL = ORDERS_URL + '/updateStatus/';

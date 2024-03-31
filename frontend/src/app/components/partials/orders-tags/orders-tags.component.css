@@ -3,6 +3,7 @@ div{
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 div a{

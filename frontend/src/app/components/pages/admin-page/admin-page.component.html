@@ -8,11 +8,12 @@
         <div><strong>Name</strong> {{order.name}}</div>
         <div><strong>Address</strong> {{order.address}}</div>
         <div><strong>Status</strong>
-            <select id="status" name="status">
+            <select id="status" name="status" (change)="statusChange(order)">
                 <option value="{{order.status}}" selected>{{order.status}}</option>
-                <option value="SHIPPED">SHIPPED</option>
-                <option value="DELIVERY">DELIVERY</option>
-                <option value="CANCELED">CANCELED</option>
+                <option value="SHIPPED" *ngIf="order.status!='SHIPPED'">SHIPPED</option>
+                <option value="DELIVERYED" *ngIf="order.status!='DELIVERYED'">DELIVERYED</option>
+                <option value="CANCELED" *ngIf="order.status!='CANCELED'">CANCELED</option>
+                <option value="REFUNDED" *ngIf="order.status!='REFUNDED'">REFUNDED</option>
               </select>
         </div>
         <div *ngIf="order.paymentId">

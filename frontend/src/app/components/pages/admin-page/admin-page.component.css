@@ -29,7 +29,6 @@
   
   .full-screen-line {
     position: absolute;
-    top: 23%; /* Position at the vertical center of the viewport */
     left: 0;
     margin-left: 5%;
     width: 90%; /* Make the line span the entire width of the viewport */

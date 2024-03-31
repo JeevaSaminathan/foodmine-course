@@ -14,7 +14,7 @@ export class OrderPageComponent {
   orders:Order[] = [];
   constructor(orderService:OrderService, activatedRoute:ActivatedRoute) {
     let orderObservable:Observable<Order[]>;
-    orderObservable = orderService.getAll();
+    orderObservable = orderService.getOrders();
 
     orderObservable.subscribe(order => {
       this.orders = order;

@@ -1,17 +1,5 @@
-<div>
-    <a routerLink="">
-        All
-    </a>
-    <a routerLink="">
-        PAYED
-    </a>
-    <a routerLink="">
-        SHIPPED
-    </a>
-    <a routerLink="">
-        DELIVERY
-    </a>
-    <a routerLink="">
-        CANCELED
+<div *ngIf="ordertag">
+    <a *ngFor="let tag of ordertag" routerLink="/ordertag/{{tag.name}}">
+        {{tag.name}}({{tag.count}})
     </a>
 </div>

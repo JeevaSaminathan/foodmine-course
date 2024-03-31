@@ -45,6 +45,7 @@ router.post('/pay', asyncHander( async (req:any, res) => {
 
     order.paymentId = paymentId;
     order.status = OrderStatus.PAYED;
+    order.ordertags = OrderStatus.PAYED;
     await order.save();
 
     res.send(order._id);
@@ -57,10 +58,62 @@ router.get('/track/:id', asyncHander( async (req, res) =>{
 
 router.get("/get", asyncHander(
     async (req:any, res:any) => {
-        const orders = await OrderModel.find({ status: OrderStatus.PAYED})
+        const orders = await OrderModel.find()
         res.send(orders);
     }
 ))
+
+router.get("/ordertags", asyncHander(
+    async (req, res) => {
+        const ordertags = await OrderModel.aggregate([
+            {
+                $unwind:'$ordertags'
+            },
+            {
+                $group:{
+                    _id: '$ordertags',
+                    count: {$sum: 1}
+                }
+            },
+            {
+                $project:{
+                    _id: 0,
+                    name:'$_id',
+                    count: '$count'
+                }
+            }
+        ]).sort({count: -1});
+
+        const all = {
+            name: 'All',
+            count: await OrderModel.countDocuments()
+        }
+        
+        ordertags.unshift(all);
+        res.send(ordertags);
+    }
+))
+
+router.get("/ordertag/:tagName", asyncHander(
+    async (req, res) => {
+        const orders = await OrderModel.find({ status: req.params.tagName })
+        res.send(orders);
+    }
+))
+
+router.put('/updateStatus/:orderId', async (req, res) => {
+    const { orderId } = req.params;
+    try {
+      const updatedOrder = await OrderModel.findByIdAndUpdate(orderId, req.body, { new: true });
+      if (!updatedOrder) {
+        return res.status(404).json({ message: 'Food not found' });
+      }
+      res.send(updatedOrder);
+    } catch (error) {
+      console.error('Error updating food details:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+});
 
 router.get("/",asyncHander(
     async (req:any, res:any) => {
