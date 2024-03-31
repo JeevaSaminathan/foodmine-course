@@ -16,6 +16,7 @@ import { UserPageComponent } from './components/pages/user-page/user-page.compon
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { AddNewFoodsPageComponent } from './components/pages/add-new-foods-page/add-new-foods-page.component';
 import { EditFoodsPageComponent } from './components/pages/edit-foods-page/edit-foods-page.component';
+import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -35,7 +36,8 @@ const routes: Routes = [
   {path:'foods/getfood', component: FoodsAdminPageComponent},
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path:'addnewfoods', component: AddNewFoodsPageComponent, canActivate:[AuthGuard]},
-  {path:'editfoods', component: EditFoodsPageComponent, canActivate:[AuthGuard]}
+  {path:'editfoods', component: EditFoodsPageComponent, canActivate:[AuthGuard]},
+  {path:'users/profile', component: ProfilePageComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

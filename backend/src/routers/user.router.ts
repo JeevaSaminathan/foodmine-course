@@ -80,6 +80,14 @@ router.get("/getuser",asyncHandler(
     }
 ))
 
+router.get("/userdetails/:userId",asyncHandler(
+    async (req:any, res:any) => {
+        const user = await UserModel.findById(req.params.userId);
+        res.send(user);
+        console.log("User"+user);
+    }
+))
+
 const generateTokenResponse = (user: User) => {
     const token = jwt.sign({
         id: user.id, email:user.email, isAdmin:user.isAdmin

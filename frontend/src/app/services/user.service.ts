@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_DELETE_USERS_URL, USER_GET_USERS_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { USER_DELETE_USERS_URL, USER_GET_USERS_URL, USER_GET_USER_DETAILS_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 
@@ -81,5 +81,9 @@ export class UserService {
 
    deleteUser(UserId:string){
     return this.http.delete<User>(USER_DELETE_USERS_URL + UserId);
+  }
+
+  getUserDetails(userId:string): Observable<User>{
+    return this.http.get<User>(USER_GET_USER_DETAILS_URL + userId );
   }
 }

@@ -12,7 +12,7 @@
                 <li *ngIf="isAuth && !isAdmin" class="menu-container">
                     <a routerLink="/">{{user.name}}</a>
                     <div class="menu">
-                        <a routerLink="/profile">Profile</a>
+                        <a (click)="userProfilePage(user)">Profile</a>
                         <a routerLink="/orders">Orders</a>
                         <a (click)="logout()">Logout</a>
                     </div>

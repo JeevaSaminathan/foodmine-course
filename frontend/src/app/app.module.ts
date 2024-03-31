@@ -40,6 +40,7 @@ import { CheckboxDialogComponent } from './components/partials/checkbox-dialog/c
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditFoodsPageComponent } from './components/pages/edit-foods-page/edit-foods-page.component';
 import { OrdersTagsComponent } from './components/partials/orders-tags/orders-tags.component';
+import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,8 @@ import { OrdersTagsComponent } from './components/partials/orders-tags/orders-ta
     AddNewFoodsPageComponent,
     CheckboxDialogComponent,
     EditFoodsPageComponent,
-    OrdersTagsComponent
+    OrdersTagsComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
