@@ -1,6 +1,38 @@
 <div class="container">
     <div class="content" *ngIf="userdetails">
-        <app-title title="Edit Foods Page" margin="1.5rem 5rem 2rem 2.5rem"></app-title>
+        <app-title title="Profile Page" margin="1.5rem 5rem 2rem 2.5rem"></app-title>
+        <form  [formGroup]="userUpdateForm" (ngSubmit)="submit()">
+
+            <input-container label="Name">
+                <input type="text" id="name" label="Name" value="{{userdetails.name}}" #inputFieldName (blur)="onEnterName(inputFieldName.value)" placeholder="Name"/>
+            </input-container>
+
+            <input-container label="Address">
+                <input type="text" id="address" label="Name" value="{{userdetails.address}}" #inputFieldAddress (blur)="onEnterAddress(inputFieldAddress.value)" placeholder="Address"/>
+            </input-container>
+
+            <default-button text="Update"></default-button>
+
+        </form>
+
+        <form  [formGroup]="passwordUpdateForm" (ngSubmit)="passwordsubmit()">
+
+            <input-container label="Old Password">
+                <input type="password" id="oldPassword" label="Old Password" #inputFieldOldPassword (blur)="onEnterOldPassword(inputFieldOldPassword.value)" placeholder="Old Password"/>
+            </input-container>
+
+            <input-container label="New Password">
+                <input type="password" id="newPassword" label="New Password" #inputFieldNewPassword (blur)="onEnterNewPassword(inputFieldNewPassword.value)" placeholder="New Password"/>
+            </input-container>
+
+            <input-container label="Confirm Password">
+                <input type="password" id="confirmPassword" label="Confirm Password" #inputFieldConfirmPassword (blur)="onEnterConfirmPassword(inputFieldConfirmPassword.value)" placeholder="Confirm Password"/>
+            </input-container>
+
+            <default-button text="Change Password"></default-button>
+
+        </form>
+
     </div>
 </div>
   

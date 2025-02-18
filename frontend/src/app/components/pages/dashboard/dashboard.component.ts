@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/models/User';
 
@@ -12,7 +13,9 @@ export class DashboardComponent {
 
   user!:User;
 
-  constructor(private userService:UserService){
+  constructor(private userService:UserService,
+    private router:Router
+  ){
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
     })
@@ -20,4 +23,9 @@ export class DashboardComponent {
   get isAdmin(){
     return this.user.isAdmin;
   }
+
+  userProfilePage(user:User){
+    this.router.navigate(['/users/profile'], { queryParams: { id: user.id } });
+  }
+
 }

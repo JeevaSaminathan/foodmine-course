@@ -3,9 +3,10 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_DELETE_USERS_URL, USER_GET_USERS_URL, USER_GET_USER_DETAILS_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { USER_CHANGE_PASSWORD_URL, USER_DELETE_USERS_URL, USER_FORGET_CHANGE_PASSWORD_URL, USER_GET_USERS_URL, USER_GET_USER_DETAILS_FORGET_PASSWORD_URL, USER_GET_USER_DETAILS_URL, USER_LOGIN_URL, USER_REGISTER_URL, USER_SEND_OTP_URL, USER_UPDATE_URL, USER_VERIFY_OTP_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
+import { IUserChangePassword } from '../shared/interfaces/IUserChangePassword';
 
 const USER_KEY = 'User';
 @Injectable({
@@ -86,4 +87,40 @@ export class UserService {
   getUserDetails(userId:string): Observable<User>{
     return this.http.get<User>(USER_GET_USER_DETAILS_URL + userId );
   }
+
+  updateUser(userId:string,user:User){
+    return this.http.put<User>(USER_UPDATE_URL + userId, user);
+  }
+
+  changePassword(userId:string,userChangePassword:IUserChangePassword):Observable<User>{
+    return this.http.put<User>(USER_CHANGE_PASSWORD_URL + userId, userChangePassword).pipe(
+      tap({
+        next: (user) =>{
+          this.toastrService.success(
+            `Changed Password Successfully ${user.name}!`
+          )
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error, 'Change Password Failed');
+        }
+      })
+    );
+   }
+
+   getUserDetailsforForgetPassword(email:string): Observable<User>{
+    return this.http.get<User>(USER_GET_USER_DETAILS_FORGET_PASSWORD_URL + email );
+  }
+
+  sendOtp(email: string): Observable<any> {
+    return this.http.post<any>(USER_SEND_OTP_URL, { email });
+  }
+
+  verifyOtp(email: string, otp: string): Observable<any> {
+    return this.http.post<any>(USER_VERIFY_OTP_URL, { email, otp });
+  }
+
+  forgetChangePassword(email: string, password: string): Observable<any> {
+    return this.http.put<User>(USER_FORGET_CHANGE_PASSWORD_URL, { email, password });
+  }
+
 }

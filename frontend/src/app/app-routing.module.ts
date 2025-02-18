@@ -17,6 +17,7 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { AddNewFoodsPageComponent } from './components/pages/add-new-foods-page/add-new-foods-page.component';
 import { EditFoodsPageComponent } from './components/pages/edit-foods-page/edit-foods-page.component';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
+import { ForgetPasswordPageComponent } from './components/pages/forget-password-page/forget-password-page.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -37,7 +38,8 @@ const routes: Routes = [
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path:'addnewfoods', component: AddNewFoodsPageComponent, canActivate:[AuthGuard]},
   {path:'editfoods', component: EditFoodsPageComponent, canActivate:[AuthGuard]},
-  {path:'users/profile', component: ProfilePageComponent, canActivate:[AuthGuard]}
+  {path:'users/profile', component: ProfilePageComponent, canActivate:[AuthGuard]},
+  {path:'forget-password', component: ForgetPasswordPageComponent}
 ];
 
 @NgModule({

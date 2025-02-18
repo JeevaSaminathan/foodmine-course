@@ -41,6 +41,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditFoodsPageComponent } from './components/pages/edit-foods-page/edit-foods-page.component';
 import { OrdersTagsComponent } from './components/partials/orders-tags/orders-tags.component';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
+import { ForgetPasswordPageComponent } from './components/pages/forget-password-page/forget-password-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,8 @@ import { ProfilePageComponent } from './components/pages/profile-page/profile-pa
     CheckboxDialogComponent,
     EditFoodsPageComponent,
     OrdersTagsComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    ForgetPasswordPageComponent
   ],
   imports: [
     BrowserModule,

@@ -56,15 +56,19 @@ input{
     border-color: rgb(243, 238, 238);
     font-size: 16px;
     font-weight: 200;
+    height: 2.5rem;
 }
 
 label{
     margin-top: 0.5rem;
+    font-weight: bold;
 }
 
 select{
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    padding: 2rem;
+    font-size: 2rem;
 }
 
 .custom-dialog-container {

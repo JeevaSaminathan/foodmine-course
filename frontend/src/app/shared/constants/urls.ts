@@ -16,6 +16,12 @@ export const USER_REGISTER_URL = BASE_URL + '/api/users/register';
 export const USER_GET_USERS_URL = BASE_URL + '/api/users/getuser';
 export const USER_DELETE_USERS_URL = BASE_URL + '/api/users/deleteuser/';
 export const USER_GET_USER_DETAILS_URL = BASE_URL + '/api/users/userdetails/';
+export const USER_UPDATE_URL = BASE_URL + '/api/users/updateUser/';
+export const USER_CHANGE_PASSWORD_URL = BASE_URL + '/api/users/changepassword/';
+export const USER_GET_USER_DETAILS_FORGET_PASSWORD_URL = BASE_URL + '/api/users/userdetailsforgetpassword/';
+export const USER_SEND_OTP_URL = BASE_URL + '/api/users/send-otp/';
+export const USER_VERIFY_OTP_URL = BASE_URL + '/api/users/verify-otp/';
+export const USER_FORGET_CHANGE_PASSWORD_URL = BASE_URL + '/api/users/forgetchangepassword/';
 
 
 export const ORDERS_URL = BASE_URL + '/api/orders';
